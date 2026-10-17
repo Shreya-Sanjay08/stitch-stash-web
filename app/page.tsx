@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
+import TestimonialCarousel from '../components/TestimonialCarousel';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -186,6 +187,14 @@ export default function Home() {
               <p className="text-sm text-stone-400 mt-1">Try searching for something else or check back soon!</p>
             </div>
           )}
+        </section>
+
+        {/* Testimonial Carousel */}
+        <section className="mt-20">
+          <h2 className="text-2xl font-semibold text-stone-800 text-center mb-6">
+            Loved by our customers
+          </h2>
+          <TestimonialCarousel />
         </section>
 
       </main>
