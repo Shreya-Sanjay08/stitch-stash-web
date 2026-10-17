@@ -119,6 +119,15 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 | `npm run dev` | Start the development server |
 | `npm run build` | Create a production build |
 | `npm run start` | Run the production build |
+| `npm test` | Run unit and component tests (Vitest) |
+| `npm run test:watch` | Run unit and component tests in watch mode |
+| `npm run test:e2e` | Run browser end-to-end tests (Playwright) |
+
+## Testing
+
+- `npm test` — unit and component tests (Vitest + Testing Library). Covers `lib/inquiry.ts`, `components/ProductCard.tsx` and `components/TestimonialCarousel.tsx`. No server or network access needed.
+- `npm run test:e2e` — browser and security checks (Playwright). Needs the dev server (started automatically via `webServer` in `playwright.config.ts` if one isn't already running on port 3000) and a working `.env.local`, since one spec exercises the real Supabase project to confirm anonymous reads are allowed and anonymous writes are rejected by Row Level Security.
+- Signed-in admin end-to-end tests are intentionally not included yet — there's no automated way to provision or manage a test admin account, so that coverage is left for later.
 
 ## Roadmap
 
