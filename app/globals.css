@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Warm, creamy off-white background */
+  background-color: #fafaf9; 
+  /* Soft dark charcoal text */
+  color: #44403c; 
+}
