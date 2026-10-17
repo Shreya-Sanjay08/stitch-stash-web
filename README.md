@@ -128,7 +128,7 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - [ ] Instagram DM and pre-filled email inquiry buttons on each product
 - [ ] Category filters (bouquets, bags, wearables, plushies, other)
 - [ ] "Coming soon" status in the admin and storefront
-- [ ] Testimonial carousel celebrating the 1,000+ pieces milestone
+- [x] Testimonial carousel celebrating the 1,000+ pieces milestone
 - [ ] Keep-alive cron route and `vercel.json` to stop the free Supabase database from pausing
 - [ ] Real product photography and Vercel deployment
 
@@ -136,3 +136,4 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 
 - Prices are in AED and the site targets the UAE market only.
 - Instagram links cannot carry pre-written messages, so the DM button opens the chat and the email button carries the product name and price.
+- Testimonials live in lib/testimonials.ts. Add real customer quotes there; sample slides only appear in development.
