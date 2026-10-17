@@ -125,7 +125,7 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - [x] Storefront with search and status filter
 - [x] Admin inventory manager
 - [x] Supabase Auth with a protected `/admin` and locked-down database rules
-- [ ] Instagram DM and pre-filled email inquiry buttons on each product
+- [x] Instagram DM and pre-filled email inquiry buttons on each product
 - [ ] Category filters (bouquets, bags, wearables, plushies, other)
 - [ ] "Coming soon" status in the admin and storefront
 - [ ] Testimonial carousel celebrating the 1,000+ pieces milestone

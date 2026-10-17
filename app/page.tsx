@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
+import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL, buildInquiryMailto } from '../lib/inquiry';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -64,16 +65,16 @@ export default function Home() {
           </p>
           
           <div className="flex justify-center gap-4">
-            <a 
-              href="https://instagram.com/stitchstashthw" 
-              target="_blank" 
+            <a
+              href={INSTAGRAM_DM_URL}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-rose-100 text-rose-800 px-6 py-3 rounded-full font-semibold hover:bg-rose-200 transition shadow-sm"
             >
               DM on Instagram
             </a>
-            <a 
-              href="mailto:contact@stitchstash.com" 
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
               className="bg-stone-200 text-stone-800 px-6 py-3 rounded-full font-semibold hover:bg-stone-300 transition shadow-sm"
             >
               Email Us
@@ -153,21 +154,31 @@ export default function Home() {
                       <h3 className="text-lg font-semibold text-stone-800 mb-1">{product.title}</h3>
                       <p className="text-sm text-stone-500 mb-4 flex-grow line-clamp-2">{product.description}</p>
                       
-                      <div className="flex items-center justify-between mt-auto pt-2 border-t border-stone-50">
-                        <span className="font-bold text-lg text-stone-800">{product.price_aed} AED</span>
-                        
+                      <div className="mt-auto pt-2 border-t border-stone-50">
+                        <div className="mb-3">
+                          <span className="font-bold text-lg text-stone-800">{product.price_aed} AED</span>
+                        </div>
+
                         {isAvailable ? (
-                          <a 
-                            href={`https://instagram.com/stitchstashthw`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm bg-stone-800 text-white px-4 py-2 rounded-xl font-medium hover:bg-stone-700 transition"
-                          >
-                            Order via DM
-                          </a>
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <a
+                              href={INSTAGRAM_DM_URL}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1 text-center text-sm bg-stone-800 text-white px-4 py-2 rounded-xl font-medium hover:bg-stone-700 transition"
+                            >
+                              Message on Instagram
+                            </a>
+                            <a
+                              href={buildInquiryMailto(product.title, product.price_aed)}
+                              className="flex-1 text-center text-sm bg-white border border-stone-200 text-stone-800 px-4 py-2 rounded-xl font-medium hover:bg-stone-50 transition"
+                            >
+                              Email
+                            </a>
+                          </div>
                         ) : (
-                          <button 
-                            disabled 
+                          <button
+                            disabled
                             className="text-sm bg-stone-200 text-stone-400 px-4 py-2 rounded-xl font-medium cursor-not-allowed"
                           >
                             Sold Out
@@ -195,7 +206,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Stitch Stash. All rights reserved. Crafted with patience and yarn.</p>
           <div className="flex gap-6">
-            <a href="https://instagram.com/stitchstashthw" target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
+            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
               Instagram
             </a>
           </div>
