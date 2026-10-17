@@ -198,9 +198,6 @@ export default function Home() {
             <a href="https://instagram.com/stitchstashthw" target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
               Instagram
             </a>
-            <a href="/admin" className="hover:text-stone-800 transition">
-              Admin Portal
-            </a>
           </div>
         </div>
       </footer>

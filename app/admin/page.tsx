@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '../../lib/supabaseClient';
 import { Product } from '../../lib/types';
 import Link from 'next/link';
 
 export default function AdminPage() {
+  const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -96,6 +98,12 @@ export default function AdminPage() {
     }
   };
 
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.push('/login');
+    router.refresh();
+  };
+
   const handleStatusChange = async (id: string, newStatus: string) => {
     const { error } = await supabase
       .from('products')
@@ -116,12 +124,20 @@ export default function AdminPage() {
           <h1 className="text-3xl font-bold text-stone-800">Stitch Stash Admin</h1>
           <p className="text-sm text-stone-500 mt-1">Manage your catalog and add new handmade creations.</p>
         </div>
-        <Link 
-          href="/" 
-          className="text-stone-600 hover:text-stone-900 font-medium text-sm bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm transition"
-        >
-          ← Back to Store
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="text-stone-600 hover:text-stone-900 font-medium text-sm bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm transition"
+          >
+            ← Back to Store
+          </Link>
+          <button
+            onClick={handleSignOut}
+            className="text-stone-600 hover:text-stone-900 font-medium text-sm bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm transition"
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
