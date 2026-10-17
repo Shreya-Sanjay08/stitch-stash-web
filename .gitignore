@@ -10,6 +10,10 @@ coverage
 .next/
 out/
 build
+next-env.d.ts
+
+# typescript
+*.tsbuildinfo
 
 # misc
 .DS_Store
