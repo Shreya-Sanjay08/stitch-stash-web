@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
-import { INSTAGRAM_DM_URL, buildInquiryMailto } from '../lib/inquiry';
+import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL, buildInquiryMailto } from '../lib/inquiry';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -65,16 +65,16 @@ export default function Home() {
           </p>
           
           <div className="flex justify-center gap-4">
-            <a 
-              href="https://instagram.com/stitchstashthw" 
-              target="_blank" 
+            <a
+              href={INSTAGRAM_DM_URL}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-rose-100 text-rose-800 px-6 py-3 rounded-full font-semibold hover:bg-rose-200 transition shadow-sm"
             >
               DM on Instagram
             </a>
-            <a 
-              href="mailto:contact@stitchstash.com" 
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
               className="bg-stone-200 text-stone-800 px-6 py-3 rounded-full font-semibold hover:bg-stone-300 transition shadow-sm"
             >
               Email Us
@@ -206,7 +206,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Stitch Stash. All rights reserved. Crafted with patience and yarn.</p>
           <div className="flex gap-6">
-            <a href="https://instagram.com/stitchstashthw" target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
+            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
               Instagram
             </a>
           </div>
