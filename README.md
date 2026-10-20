@@ -105,6 +105,10 @@ npm run dev
 
 Then open http://localhost:3000. Never commit `.env.local`; it is already in `.gitignore`.
 
+### Environment variables
+
+- `CRON_SECRET`: set this in the Vercel project settings (not in the repo). Vercel sends it as a `Bearer` token to cron routes, and `/api/cron/keep-alive` rejects any request without it. The cron runs a tiny read against Supabase twice a week so the free project does not pause after 7 days of inactivity.
+
 ### Setting up the admin account
 
 1. In the Supabase dashboard, go to **Authentication > Users > Add user** and create the owner's account (tick "Auto Confirm User").
@@ -138,7 +142,7 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - [ ] Category filters (bouquets, bags, wearables, plushies, other)
 - [ ] "Coming soon" status in the admin and storefront
 - [x] Testimonial carousel celebrating the 1,000+ pieces milestone
-- [ ] Keep-alive cron route and `vercel.json` to stop the free Supabase database from pausing
+- [x] Keep-alive cron route and `vercel.json` to stop the free Supabase database from pausing
 - [ ] Real product photography and Vercel deployment
 
 ## Notes
