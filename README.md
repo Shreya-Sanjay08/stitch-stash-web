@@ -142,6 +142,21 @@ A warm, quiet boutique look: cream and sand backgrounds, fine 1px borders and sm
 - **Colour tokens** (`tailwind.config.js`): `cream` #FBF7F1, `sand` #F1E9DD, `line` #E7DDCF, `taupe` #8B7B6B, `cocoa` #3F342C, `clay` #B5806B, plus darker `taupe-dark` #6F5F50 and `clay-dark` #8F5A47 for small text so it meets WCAG AA contrast.
 - **Welcome text** on the homepage lives in `lib/content.ts`. Edit the paragraphs there.
 
+## Design and interaction
+
+A handmade, playful look that stays quiet enough to read comfortably.
+
+- **Yarn palette** (`tailwind.config.js`): `mustard` #E0A93B, `terracotta` #C8634A, `sage` #9DAE8F, `blush` #EBC4BB and `plum` #7A4B5E, alongside the cream and sand tokens. These are decorative fills; for text use the `-dark` variants (`mustard-dark`, `terracotta-dark`, `sage-dark`, `clay-dark`, `taupe-dark`) so contrast meets WCAG AA.
+- **Fonts** (`app/layout.tsx`): Fraunces for headings (`font-display`), Jost for body text and Caveat (`font-hand`) for short handwritten notes only.
+- **Peeking pieces** (`components/PeekingPieces.tsx`): crochet motifs peek in from the page edges, sway gently and slide with the scroll. Their positions and sizes live in `lib/peekPieces.ts`. Everything is decorative and switches off under `prefers-reduced-motion`.
+- **Yarn thread** (`components/YarnThread.tsx`): a thread winds down behind the page and draws itself as you scroll. Hidden on small screens.
+- **Scroll reveal** (`components/Reveal.tsx`) fades sections and cards in once, without hiding anything before the page has loaded.
+- **Lightbox** (`components/ImageLightbox.tsx`): click a product image to see it larger, with the price and inquiry buttons. Esc or a click outside closes it.
+
+**Use real photos instead of the SVG pieces.** Cut the piece out of its photo so the background is transparent, save it as PNG or WebP in `public/crochet/`, then set `src: '/crochet/your-file.webp'` on a piece in `lib/peekPieces.ts`.
+
+**Set the hero photo.** Put the image in `public/` and set `HERO_IMAGE` in `lib/siteImages.ts`. While it is `null`, the hero shows a crochet composition.
+
 ## Roadmap
 
 - [x] Storefront with search and status filter
