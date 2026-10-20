@@ -182,7 +182,7 @@ export default function Home() {
               key={i}
               className={
                 i === 0
-                  ? 'font-display text-2xl md:text-3xl leading-relaxed text-cocoa mb-8'
+                  ? 'font-display font-normal text-[1.5rem] md:text-[1.875rem] leading-[1.5] text-cocoa mb-8'
                   : 'text-base leading-loose text-cocoa mb-6 last:mb-0'
               }
             >
@@ -264,7 +264,7 @@ export default function Home() {
         </section>
 
         {/* Testimonial Carousel */}
-        <section className="mt-20">
+        <section id="testimonials" className="mt-20">
           <h2 className="font-display text-3xl md:text-4xl font-medium text-cocoa text-center mb-8">
             Loved by our customers
           </h2>

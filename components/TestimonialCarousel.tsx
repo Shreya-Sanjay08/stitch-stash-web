@@ -90,7 +90,7 @@ export default function TestimonialCarousel() {
       aria-label="Customer testimonials"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      className="bg-white rounded-sm border border-line overflow-hidden"
+      className="stitched bg-white rounded-sm border border-line overflow-hidden"
     >
       <div
         className="relative overflow-hidden"
@@ -106,7 +106,7 @@ export default function TestimonialCarousel() {
             <div
               key={i}
               aria-hidden={i !== index}
-              className="w-full flex-shrink-0 px-8 py-14 md:px-16 md:py-16 text-center"
+              className="w-full flex-shrink-0 px-8 py-8 md:px-16 md:py-10 min-h-[15rem] flex flex-col items-center justify-center text-center"
             >
               {slide.type === 'milestone' ? (
                 <>
@@ -149,7 +149,7 @@ export default function TestimonialCarousel() {
               type="button"
               onClick={goPrev}
               aria-label="Previous testimonial"
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
+              className="absolute z-10 left-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
             >
               ‹
             </button>
@@ -157,7 +157,7 @@ export default function TestimonialCarousel() {
               type="button"
               onClick={goNext}
               aria-label="Next testimonial"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
+              className="absolute z-10 right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
             >
               ›
             </button>
@@ -166,7 +166,7 @@ export default function TestimonialCarousel() {
       </div>
 
       {showControls && (
-        <div className="flex justify-center gap-1 pb-6">
+        <div className="flex justify-center gap-1 pb-3">
           {slides.map((_, i) => (
             <button
               key={i}
