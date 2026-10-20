@@ -104,6 +104,9 @@ export default function Home() {
           <p className="font-display italic text-xl md:text-2xl text-cocoa mb-3">
             Handcrafted crochet &amp; fabric pieces
           </p>
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark mb-3">
+            Traditional Handicraft Works
+          </p>
           <p className="text-sm text-taupe-dark tracking-wide mb-8">
             10+ years of artisan experience · 1,000+ custom pieces
           </p>
@@ -273,7 +276,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative bg-sand border-t border-line py-12 px-6 mt-20 text-center">
         <div className="relative z-[2] max-w-6xl mx-auto flex flex-col items-center gap-6">
-          <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4">
+            <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
+            <span aria-hidden="true" className="hidden sm:block h-4 w-px bg-line" />
+            <span className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark">Traditional Handicraft Works</span>
+          </div>
           <div className="flex gap-8 text-xs uppercase tracking-widest">
             <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Instagram
