@@ -1,6 +1,7 @@
 import { Product } from '../lib/types';
 import { INSTAGRAM_DM_URL, buildInquiryMailto } from '../lib/inquiry';
 import { cardRotation } from '../lib/cardRotation';
+import ImageLightbox from './ImageLightbox';
 
 export default function ProductCard({ product }: { product: Product }) {
   const isAvailable = product.status === 'available';
@@ -13,13 +14,15 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       {/* Product Image */}
       <div className="aspect-[4/5] w-full bg-sand relative overflow-hidden">
-        <img
-          src={product.image_url}
-          alt={product.title}
-          loading="lazy"
-          decoding="async"
-          className={`object-cover w-full h-full transition duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 ${!isAvailable ? 'opacity-60 grayscale' : ''}`}
-        />
+        <ImageLightbox product={product}>
+          <img
+            src={product.image_url}
+            alt={product.title}
+            loading="lazy"
+            decoding="async"
+            className={`object-cover w-full h-full transition duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 ${!isAvailable ? 'opacity-60 grayscale' : ''}`}
+          />
+        </ImageLightbox>
 
         {!isAvailable && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
