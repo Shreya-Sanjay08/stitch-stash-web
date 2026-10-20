@@ -6,6 +6,7 @@ import { supabase } from '../../lib/supabaseClient';
 import { Product } from '../../lib/types';
 import Link from 'next/link';
 import { buildImageFileName } from '../../lib/storage';
+import EditProductForm from '../../components/admin/EditProductForm';
 
 export default function AdminPage() {
   const router = useRouter();
@@ -16,6 +17,7 @@ export default function AdminPage() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchInventory();
@@ -217,7 +219,8 @@ export default function AdminPage() {
           {products.length > 0 ? (
             <div className="space-y-3">
               {products.map((product) => (
-                <div key={product.id} className="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-between gap-4">
+                <div key={product.id}>
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <img 
                       src={product.image_url} 
@@ -244,12 +247,33 @@ export default function AdminPage() {
                     </div>
                   </div>
 
-                  <button 
-                    onClick={() => handleDelete(product.id)}
-                    className="text-xs bg-rose-50 text-rose-700 px-3 py-2 rounded-xl hover:bg-rose-100 font-medium transition"
-                  >
-                    Delete
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setEditingId(editingId === product.id ? null : product.id)}
+                      className="text-xs bg-stone-100 text-stone-700 px-3 py-2 rounded-xl hover:bg-stone-200 font-medium transition"
+                    >
+                      Edit
+                    </button>
+                    <button 
+                      onClick={() => handleDelete(product.id)}
+                      className="text-xs bg-rose-50 text-rose-700 px-3 py-2 rounded-xl hover:bg-rose-100 font-medium transition"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                {editingId === product.id && (
+                  <EditProductForm
+                    key={product.id}
+                    product={product}
+                    onSaved={() => {
+                      setEditingId(null);
+                      setSuccessMessage('Changes saved');
+                      fetchInventory();
+                    }}
+                    onCancel={() => setEditingId(null)}
+                  />
+                )}
                 </div>
               ))}
             </div>

@@ -5,8 +5,8 @@ export type ProductInput = {
 };
 
 export type ProductValidation =
-  | { ok: true; value: { title: string; description: string; price_aed: number } }
-  | { ok: false; error: string };
+  | { ok: true; value: { title: string; description: string; price_aed: number }; error?: undefined }
+  | { ok: false; error: string; value?: undefined };
 
 const MAX_TITLE = 120;
 const MAX_DESCRIPTION = 1000;
