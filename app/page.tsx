@@ -197,7 +197,7 @@ export default function Home() {
 
         {/* Testimonial Carousel */}
         <section className="mt-20">
-          <h2 className="text-2xl font-semibold text-stone-800 text-center mb-6">
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-cocoa text-center mb-8">
             Loved by our customers
           </h2>
           <TestimonialCarousel />
@@ -206,14 +206,18 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-stone-200 py-8 px-6 mt-20 text-center text-stone-500 text-sm">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Stitch Stash. All rights reserved. Crafted with patience and yarn.</p>
-          <div className="flex gap-6">
-            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-stone-800 transition">
+      <footer className="bg-sand border-t border-line py-12 px-6 mt-20 text-center">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
+          <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
+          <div className="flex gap-8 text-xs uppercase tracking-widest">
+            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
               Instagram
             </a>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
+              Email
+            </a>
           </div>
+          <p className="text-xs text-taupe-dark">© {new Date().getFullYear()} Stitch Stash. All rights reserved. Crafted with patience and yarn.</p>
         </div>
       </footer>
 
