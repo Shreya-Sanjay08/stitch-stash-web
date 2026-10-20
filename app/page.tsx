@@ -6,6 +6,7 @@ import { Product } from '../lib/types';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import ProductCard from '../components/ProductCard';
 import LoadError from '../components/LoadError';
+import Reveal from '../components/Reveal';
 import PeekingPieces from '../components/PeekingPieces';
 import YarnThread from '../components/YarnThread';
 import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL } from '../lib/inquiry';
@@ -159,7 +160,7 @@ export default function Home() {
 
       {/* Welcome */}
       <section id="about" className="relative bg-sand px-6 py-20 md:py-28">
-        <div className="relative z-[2] max-w-2xl mx-auto text-center">
+        <Reveal className="relative z-[2] max-w-2xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-8">Welcome</p>
           {INTRO_PARAGRAPHS.map((paragraph, i) => (
             <p
@@ -173,7 +174,7 @@ export default function Home() {
               {paragraph}
             </p>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* Main Content Container */}
@@ -181,12 +182,12 @@ export default function Home() {
 
         {/* Collection */}
         <section id="collection" className="scroll-mt-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <h2 className="font-display text-4xl md:text-5xl font-medium text-cocoa mb-3">The Collection</h2>
             <p className="text-sm text-taupe-dark">
               Every piece is handmade. Message us on Instagram or email to enquire.
             </p>
-          </div>
+          </Reveal>
 
           {/* Search & Filter Bar */}
           <div className="mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
@@ -232,8 +233,10 @@ export default function Home() {
             <LoadError onRetry={handleRetry} />
           ) : filteredProducts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {filteredProducts.map((product, index) => (
+                <Reveal key={product.id} delay={(index % 3) * 100} className="h-full">
+                  <ProductCard product={product} />
+                </Reveal>
               ))}
             </div>
           ) : (
