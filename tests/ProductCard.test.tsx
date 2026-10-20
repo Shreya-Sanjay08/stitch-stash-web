@@ -28,7 +28,8 @@ describe('ProductCard', () => {
     const emailLink = screen.getByRole('link', { name: 'Email' });
     expect(emailLink).toHaveAttribute('href', buildInquiryMailto(product.title, product.price_aed));
 
-    expect(screen.queryByRole('button')).toBeNull();
+    // The image trigger is a button now, so check specifically that there is no "Sold Out" button.
+    expect(screen.queryByRole('button', { name: 'Sold Out' })).toBeNull();
   });
 
   it('shows a disabled button and no inquiry links when sold_out', () => {
