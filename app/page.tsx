@@ -7,6 +7,7 @@ import TestimonialCarousel from '../components/TestimonialCarousel';
 import ProductCard from '../components/ProductCard';
 import LoadError from '../components/LoadError';
 import PeekingPieces from '../components/PeekingPieces';
+import YarnThread from '../components/YarnThread';
 import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL } from '../lib/inquiry';
 import { INTRO_PARAGRAPHS } from '../lib/content';
 
@@ -59,6 +60,7 @@ export default function Home() {
   return (
     <div className="relative overflow-x-clip min-h-screen bg-cream text-cocoa flex flex-col justify-between font-sans">
       {/* Decorations sit between the page background and the content (z-[2]) */}
+      <YarnThread />
       <PeekingPieces />
 
       
