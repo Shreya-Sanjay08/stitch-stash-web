@@ -134,6 +134,14 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - `npm run test:e2e` — browser and security checks (Playwright). Needs the dev server (started automatically via `webServer` in `playwright.config.ts` if one isn't already running on port 3000) and a working `.env.local`, since one spec exercises the real Supabase project to confirm anonymous reads are allowed and anonymous writes are rejected by Row Level Security.
 - Signed-in admin end-to-end tests are intentionally not included yet — there's no automated way to provision or manage a test admin account, so that coverage is left for later.
 
+## Design
+
+A warm, quiet boutique look: cream and sand backgrounds, fine 1px borders and small letter-spaced uppercase labels.
+
+- **Fonts** (loaded with `next/font/google` in `app/layout.tsx`): Cormorant Garamond for headings (`font-display`) and Jost for body text (`font-sans`).
+- **Colour tokens** (`tailwind.config.js`): `cream` #FBF7F1, `sand` #F1E9DD, `line` #E7DDCF, `taupe` #8B7B6B, `cocoa` #3F342C, `clay` #B5806B, plus darker `taupe-dark` #6F5F50 and `clay-dark` #8F5A47 for small text so it meets WCAG AA contrast.
+- **Welcome text** on the homepage lives in `lib/content.ts`. Edit the paragraphs there.
+
 ## Roadmap
 
 - [x] Storefront with search and status filter
@@ -142,6 +150,7 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - [x] Instagram DM and pre-filled email inquiry buttons on each product
 - [x] Testimonial carousel celebrating the 1,000+ pieces milestone
 - [x] Keep-alive cron route and `vercel.json` to stop the free Supabase database from pausing
+- [x] Luxury design pass
 - [ ] Real product photography and Vercel deployment
 
 ## Notes

@@ -90,7 +90,7 @@ export default function TestimonialCarousel() {
       aria-label="Customer testimonials"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      className="bg-white rounded-2xl border border-stone-100 shadow-sm overflow-hidden focus:outline-none focus:ring-2 focus:ring-stone-300"
+      className="bg-white rounded-sm border border-line overflow-hidden"
     >
       <div
         className="relative overflow-hidden"
@@ -110,32 +110,32 @@ export default function TestimonialCarousel() {
             >
               {slide.type === 'milestone' ? (
                 <>
-                  <span className="bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6 inline-block">
+                  <span className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-6 inline-block">
                     Our Milestone
                   </span>
-                  <p className="text-5xl md:text-7xl font-bold text-stone-800 tracking-tight mb-4">
+                  <p className="font-display text-6xl md:text-8xl font-medium text-cocoa tracking-tight mb-4">
                     1,000+
                   </p>
-                  <p className="text-lg text-stone-600 max-w-md mx-auto mb-2">
+                  <p className="text-lg text-cocoa max-w-md mx-auto mb-2">
                     custom handcrafted pieces, made with patience and yarn
                   </p>
-                  <p className="text-sm text-stone-500 font-medium">
+                  <p className="text-sm text-taupe-dark tracking-wide">
                     10+ years of artisan experience
                   </p>
                 </>
               ) : (
                 <>
                   {slide.isSample && (
-                    <span className="bg-amber-50 text-amber-700 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 inline-block border border-amber-200">
+                    <span className="bg-cream text-clay-dark text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block border border-line">
                       SAMPLE – not a real review
                     </span>
                   )}
-                  <p className="italic text-2xl md:text-3xl text-stone-800 font-medium leading-snug tracking-tight max-w-xl mx-auto mb-6">
+                  <p className="font-display italic text-2xl md:text-3xl text-cocoa leading-snug max-w-xl mx-auto mb-6">
                     &ldquo;{slide.testimonial.quote}&rdquo;
                   </p>
-                  <p className="text-sm font-semibold text-stone-700">{slide.testimonial.name}</p>
+                  <p className="text-xs uppercase tracking-widest text-cocoa">{slide.testimonial.name}</p>
                   {slide.testimonial.detail && (
-                    <p className="text-xs text-stone-400 mt-1">{slide.testimonial.detail}</p>
+                    <p className="text-xs text-taupe-dark mt-1">{slide.testimonial.detail}</p>
                   )}
                 </>
               )}
@@ -149,7 +149,7 @@ export default function TestimonialCarousel() {
               type="button"
               onClick={goPrev}
               aria-label="Previous testimonial"
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white border border-stone-200 text-stone-600 shadow-sm hover:bg-stone-50 transition text-lg"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
             >
               ‹
             </button>
@@ -157,7 +157,7 @@ export default function TestimonialCarousel() {
               type="button"
               onClick={goNext}
               aria-label="Next testimonial"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-white border border-stone-200 text-stone-600 shadow-sm hover:bg-stone-50 transition text-lg"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-cream border border-line text-cocoa hover:bg-sand transition text-lg"
             >
               ›
             </button>
@@ -178,7 +178,7 @@ export default function TestimonialCarousel() {
             >
               <span
                 className={`block w-2.5 h-2.5 rounded-full transition ${
-                  i === index ? 'bg-stone-800' : 'bg-stone-200'
+                  i === index ? 'bg-cocoa' : 'bg-line'
                 }`}
               />
             </button>

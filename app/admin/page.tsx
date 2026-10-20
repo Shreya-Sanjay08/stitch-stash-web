@@ -123,22 +123,22 @@ export default function AdminPage() {
   };
 
   return (
-    <main className="min-h-screen p-6 md:p-12 max-w-4xl mx-auto bg-[#fafaf9] text-stone-800 font-sans">
+    <main className="min-h-screen p-6 md:p-12 max-w-4xl mx-auto bg-cream text-cocoa font-sans">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-stone-800">Stitch Stash Admin</h1>
-          <p className="text-sm text-stone-500 mt-1">Manage your catalog and add new handmade creations.</p>
+          <h1 className="font-display text-4xl font-medium text-cocoa">Stitch Stash Admin</h1>
+          <p className="text-sm text-taupe-dark mt-1">Manage your catalog and add new handmade creations.</p>
         </div>
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="text-stone-600 hover:text-stone-900 font-medium text-sm bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm transition"
+            className="text-cocoa hover:text-clay-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
           >
             ← Back to Store
           </Link>
           <button
             onClick={handleSignOut}
-            className="text-stone-600 hover:text-stone-900 font-medium text-sm bg-white border border-stone-200 px-4 py-2 rounded-xl shadow-sm transition"
+            className="text-cocoa hover:text-clay-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
           >
             Sign Out
           </button>
@@ -149,40 +149,40 @@ export default function AdminPage() {
         
         {/* Add Product Form */}
         <div className="md:col-span-1">
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 space-y-4 sticky top-6">
-            <h2 className="text-lg font-semibold text-stone-800 pb-2 border-b border-stone-100">Add New Creation</h2>
+          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-sm border border-line space-y-4 sticky top-6">
+            <h2 className="font-display text-2xl font-medium text-cocoa pb-2 border-b border-line">Add New Creation</h2>
             
             {successMessage && (
-              <div className="bg-emerald-50 text-emerald-800 p-3 rounded-xl text-xs font-medium border border-emerald-100">
+              <div className="bg-sand text-cocoa p-3 rounded-full text-xs font-medium border border-line">
                 {successMessage}
               </div>
             )}
 
             <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">Product Title</label>
+              <label className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Product Title</label>
               <input 
                 type="text" 
                 value={title} 
                 onChange={(e) => setTitle(e.target.value)} 
                 required
                 placeholder="e.g., Tulip Bouquet"
-                className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">Description</label>
+              <label className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Description</label>
               <textarea 
                 value={description} 
                 onChange={(e) => setDescription(e.target.value)} 
                 rows={2}
                 placeholder="Yarn details..."
-                className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">Price (AED)</label>
+              <label className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Price (AED)</label>
               <input 
                 type="number" 
                 step="0.01"
@@ -190,25 +190,25 @@ export default function AdminPage() {
                 onChange={(e) => setPrice(e.target.value)} 
                 required
                 placeholder="120"
-                className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">Image</label>
+              <label className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Image</label>
               <input 
                 type="file" 
                 accept="image/*"
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
                 required
-                className="w-full text-xs text-stone-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-stone-100 file:text-stone-700 hover:file:bg-stone-200 cursor-pointer"
+                className="w-full text-xs text-taupe-dark file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sand file:text-cocoa hover:file:bg-stone-200 cursor-pointer"
               />
             </div>
 
             <button 
               type="submit" 
               disabled={loading}
-              className="w-full bg-stone-800 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-stone-700 transition disabled:opacity-50 shadow-sm"
+              className="w-full bg-cocoa text-cream min-h-[44px] rounded-full text-sm tracking-wide hover:bg-cocoa/90 transition disabled:opacity-50"
             >
               {loading ? 'Uploading...' : 'Publish Creation'}
             </button>
@@ -217,10 +217,10 @@ export default function AdminPage() {
 
         {/* Inventory List */}
         <div className="md:col-span-2 space-y-4">
-          <h2 className="text-lg font-semibold text-stone-800">Current Inventory ({products.length})</h2>
+          <h2 className="font-display text-2xl font-medium text-cocoa">Current Inventory ({products.length})</h2>
           
           {loadError && (
-            <div role="alert" className="bg-rose-50 text-rose-800 p-3 rounded-xl text-sm font-medium border border-rose-100">
+            <div role="alert" className="bg-cream text-clay-dark p-3 rounded-full text-sm font-medium border border-clay">
               Couldn&apos;t load inventory. Please refresh the page.
             </div>
           )}
@@ -229,25 +229,25 @@ export default function AdminPage() {
             <div className="space-y-3">
               {products.map((product) => (
                 <div key={product.id}>
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-between gap-4">
+                <div className="bg-white p-4 rounded-sm border border-line flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <img 
                       src={product.image_url} 
                       alt={product.title} 
-                      className="w-16 h-16 object-cover rounded-xl border border-stone-100"
+                      className="w-16 h-16 object-cover rounded-full border border-line"
                     />
                     <div>
-                      <h3 className="font-semibold text-stone-800 text-sm">{product.title}</h3>
-                      <p className="text-xs text-stone-500 font-medium mb-1.5">{product.price_aed} AED</p>
+                      <h3 className="font-display font-medium text-cocoa text-lg">{product.title}</h3>
+                      <p className="text-xs text-taupe-dark font-medium mb-1.5">{product.price_aed} AED</p>
                       
                       {/* Status Dropdown */}
                       <select
                         value={product.status}
                         onChange={(e) => handleStatusChange(product.id, e.target.value)}
-                        className={`text-xs px-2.5 py-1 rounded-lg font-medium border border-stone-200 focus:outline-none focus:ring-1 focus:ring-stone-400 cursor-pointer ${
+                        className={`text-xs px-2.5 py-1 rounded-lg font-medium border border-line focus:outline-none focus:ring-1 focus:ring-clay cursor-pointer ${
                           product.status === 'available' 
-                            ? 'bg-emerald-50 text-emerald-800' 
-                            : 'bg-amber-50 text-amber-800'
+                            ? 'bg-sand text-cocoa' 
+                            : 'bg-cream text-clay-dark'
                         }`}
                       >
                         <option value="available">Available</option>
@@ -259,13 +259,13 @@ export default function AdminPage() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setEditingId(editingId === product.id ? null : product.id)}
-                      className="text-xs bg-stone-100 text-stone-700 px-3 py-2 rounded-xl hover:bg-stone-200 font-medium transition"
+                      className="text-xs min-h-[44px] bg-sand text-cocoa px-4 rounded-full hover:bg-line font-medium transition"
                     >
                       Edit
                     </button>
                     <button 
                       onClick={() => handleDelete(product.id)}
-                      className="text-xs bg-rose-50 text-rose-700 px-3 py-2 rounded-xl hover:bg-rose-100 font-medium transition"
+                      className="text-xs min-h-[44px] bg-cream border border-line text-clay-dark px-4 rounded-full hover:bg-sand font-medium transition"
                     >
                       Delete
                     </button>
@@ -287,7 +287,7 @@ export default function AdminPage() {
               ))}
             </div>
           ) : (
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 text-center text-stone-400">
+            <div className="bg-white p-8 rounded-sm border border-line text-center text-taupe-dark">
               <p className="text-sm">No items in your inventory yet. Add one using the form!</p>
             </div>
           )}

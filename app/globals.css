@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  /* Warm, creamy off-white background */
-  background-color: #fafaf9; 
-  /* Soft dark charcoal text */
-  color: #44403c; 
+  background-color: #FBF7F1; /* cream */
+  color: #3F342C; /* cocoa */
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid #B5806B; /* clay */
+  outline-offset: 2px;
 }
