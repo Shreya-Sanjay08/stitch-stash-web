@@ -264,7 +264,7 @@ export default function Home() {
         </section>
 
         {/* Testimonial Carousel */}
-        <section className="mt-20">
+        <section id="testimonials" className="mt-20">
           <h2 className="font-display text-3xl md:text-4xl font-medium text-cocoa text-center mb-8">
             Loved by our customers
           </h2>
