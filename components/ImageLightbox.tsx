@@ -96,21 +96,23 @@ export default function ImageLightbox({ product, children, triggerClassName = ''
               </p>
 
               {isAvailable && (
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <a
-                    href={INSTAGRAM_DM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center min-h-[44px] text-sm bg-cocoa text-cream px-4 rounded-full hover:bg-cocoa/90 transition"
-                  >
-                    Message on Instagram
-                  </a>
-                  <a
-                    href={buildInquiryMailto(product.title, product.price_aed)}
-                    className="flex-1 inline-flex items-center justify-center min-h-[44px] text-sm border border-cocoa text-cocoa px-4 rounded-full hover:bg-sand transition"
-                  >
-                    Email
-                  </a>
+                <div className="card-actions-wrap">
+                  <div className="card-actions">
+                    <a
+                      href={INSTAGRAM_DM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center min-h-[44px] text-sm whitespace-nowrap bg-cocoa text-cream px-4 rounded-full hover:bg-cocoa/90 transition"
+                    >
+                      Message on Instagram
+                    </a>
+                    <a
+                      href={buildInquiryMailto(product.title, product.price_aed)}
+                      className="inline-flex items-center justify-center min-h-[44px] text-sm whitespace-nowrap border border-cocoa text-cocoa px-4 rounded-full hover:bg-sand transition"
+                    >
+                      Email
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
