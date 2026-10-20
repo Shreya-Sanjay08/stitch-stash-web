@@ -5,11 +5,13 @@ import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import ProductCard from '../components/ProductCard';
+import LoadError from '../components/LoadError';
 import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL } from '../lib/inquiry';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -28,9 +30,16 @@ export default function Home() {
       if (data) setProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
+      setLoadError(true);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRetry = () => {
+    setLoadError(false);
+    setLoading(true);
+    fetchProducts();
   };
 
   // Filter products based on search query and category
@@ -125,6 +134,8 @@ export default function Home() {
                 <div key={n} className="bg-white rounded-2xl p-4 h-80 animate-pulse border border-stone-100" />
               ))}
             </div>
+          ) : loadError ? (
+            <LoadError onRetry={handleRetry} />
           ) : filteredProducts.length > 0 ? (
             
             // ===== REPLACE FROM HERE ... =====

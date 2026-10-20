@@ -17,6 +17,7 @@ export default function AdminPage() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [loadError, setLoadError] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -31,7 +32,9 @@ export default function AdminPage() {
 
     if (error) {
       console.error('Error fetching inventory:', error);
+      setLoadError(true);
     } else if (data) {
+      setLoadError(false);
       setProducts(data);
     }
   };
@@ -216,6 +219,12 @@ export default function AdminPage() {
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-lg font-semibold text-stone-800">Current Inventory ({products.length})</h2>
           
+          {loadError && (
+            <div role="alert" className="bg-rose-50 text-rose-800 p-3 rounded-xl text-sm font-medium border border-rose-100">
+              Couldn&apos;t load inventory. Please refresh the page.
+            </div>
+          )}
+
           {products.length > 0 ? (
             <div className="space-y-3">
               {products.map((product) => (
