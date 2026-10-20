@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '../../lib/supabaseClient';
 import { Product } from '../../lib/types';
 import Link from 'next/link';
+import { buildImageFileName } from '../../lib/storage';
 
 export default function AdminPage() {
   const router = useRouter();
@@ -45,8 +46,7 @@ export default function AdminPage() {
 
     try {
       // 1. Upload image to Supabase Storage bucket 'product-images'
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
+      const fileName = buildImageFileName(file);
       const { error: uploadError } = await supabase.storage
         .from('product-images')
         .upload(fileName, file);
