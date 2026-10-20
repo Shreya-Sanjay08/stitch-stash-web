@@ -70,17 +70,17 @@ export default function Home() {
       
       {/* Top bar */}
       <div className="relative z-[2] border-b border-line">
-        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
           <Link href="/" className="inline-flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/logo-transparent-800.png"
               alt="Stitch Stash"
-              width={73}
-              height={56}
+              width={94}
+              height={72}
               fetchPriority="high"
               decoding="async"
-              className="h-14 w-auto"
+              className="h-[72px] w-auto"
             />
           </Link>
           <div className="flex items-center gap-6 text-xs uppercase tracking-widest">
