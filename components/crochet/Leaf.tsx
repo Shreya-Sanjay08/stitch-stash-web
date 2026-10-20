@@ -10,7 +10,7 @@ export default function Leaf({ className, fuzzy }: MotifProps) {
         {fuzzy && <FuzzyFilter id="leaf-fuzz" />}
       </defs>
       <g filter={fuzzy ? 'url(#leaf-fuzz)' : undefined}>
-        <path d={LEAF} fill="#9DAE8F" />
+        <path d={LEAF} fill="#7F8A25" />
         <path d={LEAF} fill="url(#leaf-stitch)" />
         <path d="M50 94 V16" stroke="#3F342C" strokeOpacity="0.3" strokeWidth="1.6" strokeLinecap="round" />
         <g stroke="#3F342C" strokeOpacity="0.22" strokeWidth="1.1" strokeDasharray="2.2 1.6" strokeLinecap="round" fill="none">
@@ -21,7 +21,7 @@ export default function Leaf({ className, fuzzy }: MotifProps) {
             </g>
           ))}
         </g>
-        <path d={LEAF} fill="none" stroke="#5A6B4C" strokeOpacity="0.5" strokeWidth="1.4" />
+        <path d={LEAF} fill="none" stroke="#5F6A1A" strokeOpacity="0.5" strokeWidth="1.4" />
       </g>
     </svg>
   );

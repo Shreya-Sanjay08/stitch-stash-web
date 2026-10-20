@@ -132,13 +132,13 @@ export default function AdminPage() {
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="text-cocoa hover:text-clay-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
+            className="text-cocoa hover:text-brand-olive-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
           >
             ← Back to Store
           </Link>
           <button
             onClick={handleSignOut}
-            className="text-cocoa hover:text-clay-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
+            className="text-cocoa hover:text-brand-olive-dark font-medium text-sm bg-white border border-line px-4 min-h-[44px] inline-flex items-center rounded-full transition"
           >
             Sign Out
           </button>
@@ -166,7 +166,7 @@ export default function AdminPage() {
                 onChange={(e) => setTitle(e.target.value)} 
                 required
                 placeholder="e.g., Tulip Bouquet"
-                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
               />
             </div>
 
@@ -177,7 +177,7 @@ export default function AdminPage() {
                 onChange={(e) => setDescription(e.target.value)} 
                 rows={2}
                 placeholder="Yarn details..."
-                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
               />
             </div>
 
@@ -190,7 +190,7 @@ export default function AdminPage() {
                 onChange={(e) => setPrice(e.target.value)} 
                 required
                 placeholder="120"
-                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+                className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
               />
             </div>
 
@@ -220,7 +220,7 @@ export default function AdminPage() {
           <h2 className="font-display text-2xl font-medium text-cocoa">Current Inventory ({products.length})</h2>
           
           {loadError && (
-            <div role="alert" className="bg-cream text-clay-dark p-3 rounded-full text-sm font-medium border border-clay">
+            <div role="alert" className="bg-cream text-brand-orange-dark p-3 rounded-full text-sm font-medium border border-brand-orange">
               Couldn&apos;t load inventory. Please refresh the page.
             </div>
           )}
@@ -244,10 +244,10 @@ export default function AdminPage() {
                       <select
                         value={product.status}
                         onChange={(e) => handleStatusChange(product.id, e.target.value)}
-                        className={`text-xs px-2.5 py-1 rounded-lg font-medium border border-line focus:outline-none focus:ring-1 focus:ring-clay cursor-pointer ${
+                        className={`text-xs px-2.5 py-1 rounded-lg font-medium border border-line focus:outline-none focus:ring-1 focus:ring-brand-olive cursor-pointer ${
                           product.status === 'available' 
                             ? 'bg-sand text-cocoa' 
-                            : 'bg-cream text-clay-dark'
+                            : 'bg-cream text-brand-orange-dark'
                         }`}
                       >
                         <option value="available">Available</option>
@@ -265,7 +265,7 @@ export default function AdminPage() {
                     </button>
                     <button 
                       onClick={() => handleDelete(product.id)}
-                      className="text-xs min-h-[44px] bg-cream border border-line text-clay-dark px-4 rounded-full hover:bg-sand font-medium transition"
+                      className="text-xs min-h-[44px] bg-cream border border-line text-brand-orange-dark px-4 rounded-full hover:bg-sand font-medium transition"
                     >
                       Delete
                     </button>

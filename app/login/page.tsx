@@ -43,7 +43,7 @@ export default function LoginPage() {
           </h2>
 
           {errorMessage && (
-            <div className="bg-cream text-clay-dark p-3 rounded-full text-xs font-medium border border-clay">
+            <div className="bg-cream text-brand-orange-dark p-3 rounded-full text-xs font-medium border border-brand-orange">
               {errorMessage}
             </div>
           )}
@@ -56,7 +56,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="you@example.com"
-              className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+              className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
             />
           </div>
 
@@ -68,7 +68,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="••••••••"
-              className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+              className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
             />
           </div>
 
@@ -82,7 +82,7 @@ export default function LoginPage() {
         </form>
 
         <div className="text-center mt-6">
-          <Link href="/" className="text-sm text-taupe-dark hover:text-clay-dark transition">
+          <Link href="/" className="text-sm text-taupe-dark hover:text-brand-olive-dark transition">
             ← Back to Store
           </Link>
         </div>
