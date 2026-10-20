@@ -46,3 +46,58 @@ body {
   border-radius: inherit;
   pointer-events: none;
 }
+
+/* Peeking crochet pieces: transform and opacity only. */
+@keyframes peek-sway {
+  0%, 100% { transform: rotate(calc(var(--rot, 0deg) - 3deg)) translateY(0); }
+  50% { transform: rotate(calc(var(--rot, 0deg) + 3deg)) translateY(-6px); }
+}
+
+@keyframes peek-wiggle {
+  0%, 100% { transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2)) rotate(0deg); }
+  20% { transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2)) rotate(-9deg); }
+  40% { transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2)) rotate(8deg); }
+  60% { transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2)) rotate(-5deg); }
+  80% { transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2)) rotate(3deg); }
+}
+
+.peek-sway {
+  animation: peek-sway 7s ease-in-out infinite;
+  transform: rotate(var(--rot, 0deg));
+}
+
+.peek-hover {
+  transition: transform 0.4s ease-out;
+}
+
+.peek-wiggle {
+  animation: peek-wiggle 0.6s ease-in-out;
+}
+
+/* Only mouse users can hover; the pieces stay click-through everywhere else. */
+@media (hover: hover) and (pointer: fine) {
+  .peek-hover {
+    pointer-events: auto;
+  }
+
+  .peek-hover:hover {
+    transform: translateX(calc(var(--peek-dir, 1) * var(--peek-size, 100px) * 0.2));
+    animation: peek-wiggle 0.6s ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .peek-sway,
+  .peek-wiggle,
+  .peek-hover:hover {
+    animation: none;
+  }
+
+  .peek-hover {
+    transition: none;
+  }
+
+  .peek-hover:hover {
+    transform: none;
+  }
+}

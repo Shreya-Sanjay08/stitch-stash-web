@@ -6,6 +6,7 @@ import { Product } from '../lib/types';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import ProductCard from '../components/ProductCard';
 import LoadError from '../components/LoadError';
+import PeekingPieces from '../components/PeekingPieces';
 import { INSTAGRAM_DM_URL, INSTAGRAM_PROFILE_URL, CONTACT_EMAIL } from '../lib/inquiry';
 import { INTRO_PARAGRAPHS } from '../lib/content';
 
@@ -56,10 +57,13 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen bg-cream text-cocoa flex flex-col justify-between font-sans">
+    <div className="relative overflow-x-clip min-h-screen bg-cream text-cocoa flex flex-col justify-between font-sans">
+      {/* Decorations sit between the page background and the content (z-[2]) */}
+      <PeekingPieces />
+
       
       {/* Top bar */}
-      <div className="border-b border-line">
+      <div className="relative z-[2] border-b border-line">
         <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
           <span className="font-display text-2xl font-medium tracking-wide text-cocoa">Stitch Stash</span>
           <div className="flex items-center gap-6 text-xs uppercase tracking-widest">
@@ -74,7 +78,7 @@ export default function Home() {
       </div>
 
       {/* Hero */}
-      <header className="text-center px-6 py-20 md:py-32 max-w-6xl mx-auto w-full">
+      <header className="relative z-[2] text-center px-6 py-20 md:py-32 max-w-6xl mx-auto w-full">
         <p className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-6">Handmade in the UAE</p>
         <h1 className="font-display text-6xl md:text-8xl font-medium tracking-tight text-cocoa mb-6">
           Stitch Stash
@@ -108,8 +112,8 @@ export default function Home() {
       </header>
 
       {/* Welcome */}
-      <section id="about" className="bg-sand px-6 py-20 md:py-28">
-        <div className="max-w-2xl mx-auto text-center">
+      <section id="about" className="relative bg-sand px-6 py-20 md:py-28">
+        <div className="relative z-[2] max-w-2xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-8">Welcome</p>
           {INTRO_PARAGRAPHS.map((paragraph, i) => (
             <p
@@ -127,7 +131,7 @@ export default function Home() {
       </section>
 
       {/* Main Content Container */}
-      <main className="px-6 py-16 md:px-12 max-w-6xl mx-auto w-full flex-grow">
+      <main className="relative z-[2] px-6 py-16 md:px-12 max-w-6xl mx-auto w-full flex-grow">
 
         {/* Collection */}
         <section id="collection" className="scroll-mt-8">
@@ -206,8 +210,8 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-sand border-t border-line py-12 px-6 mt-20 text-center">
-        <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
+      <footer className="relative bg-sand border-t border-line py-12 px-6 mt-20 text-center">
+        <div className="relative z-[2] max-w-6xl mx-auto flex flex-col items-center gap-6">
           <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
           <div className="flex gap-8 text-xs uppercase tracking-widest">
             <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
