@@ -76,40 +76,40 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-3 mt-2"
+      className="bg-cream p-4 rounded-sm border border-line space-y-3 mt-2"
     >
       {error && (
-        <div role="alert" className="bg-rose-50 text-rose-800 p-3 rounded-xl text-xs font-medium border border-rose-100">
+        <div role="alert" className="bg-cream text-clay-dark p-3 rounded-full text-xs font-medium border border-clay">
           {error}
         </div>
       )}
 
       <div>
-        <label htmlFor={`edit-title-${product.id}`} className="block text-xs font-semibold text-stone-600 mb-1">Product Title</label>
+        <label htmlFor={`edit-title-${product.id}`} className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Product Title</label>
         <input
           id={`edit-title-${product.id}`}
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-stone-400"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
         />
       </div>
 
       <div>
-        <label htmlFor={`edit-description-${product.id}`} className="block text-xs font-semibold text-stone-600 mb-1">Description</label>
+        <label htmlFor={`edit-description-${product.id}`} className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Description</label>
         <textarea
           id={`edit-description-${product.id}`}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-stone-400"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
         />
       </div>
 
       <div>
-        <label htmlFor={`edit-price-${product.id}`} className="block text-xs font-semibold text-stone-600 mb-1">Price (AED)</label>
+        <label htmlFor={`edit-price-${product.id}`} className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Price (AED)</label>
         <input
           id={`edit-price-${product.id}`}
           type="number"
@@ -117,25 +117,25 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-xl border border-stone-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-stone-400"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
         />
       </div>
 
       <div>
-        <span className="block text-xs font-semibold text-stone-600 mb-1">Current image</span>
+        <span className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Current image</span>
         <img
           src={product.image_url}
           alt={`Current image of ${product.title}`}
-          className="w-16 h-16 object-cover rounded-xl border border-stone-100 mb-2"
+          className="w-16 h-16 object-cover rounded-full border border-line mb-2"
         />
-        <label htmlFor={`edit-image-${product.id}`} className="block text-xs font-semibold text-stone-600 mb-1">Replace image (optional)</label>
+        <label htmlFor={`edit-image-${product.id}`} className="block text-[11px] uppercase tracking-widest text-taupe-dark mb-1.5">Replace image (optional)</label>
         <input
           id={`edit-image-${product.id}`}
           type="file"
           accept="image/*"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
           disabled={saving}
-          className="w-full text-xs text-stone-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-stone-100 file:text-stone-700 hover:file:bg-stone-200 cursor-pointer"
+          className="w-full text-xs text-taupe-dark file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sand file:text-cocoa hover:file:bg-stone-200 cursor-pointer"
         />
       </div>
 
@@ -143,7 +143,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
         <button
           type="submit"
           disabled={saving}
-          className="flex-1 bg-stone-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-stone-700 transition disabled:opacity-50 shadow-sm"
+          className="flex-1 min-h-[44px] bg-cocoa text-cream rounded-full text-sm tracking-wide hover:bg-cocoa/90 transition disabled:opacity-50"
         >
           {saving ? 'Saving...' : 'Save'}
         </button>
@@ -151,7 +151,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
           type="button"
           onClick={onCancel}
           disabled={saving}
-          className="flex-1 bg-white text-stone-600 border border-stone-200 py-2 rounded-xl text-sm font-medium hover:bg-stone-100 transition disabled:opacity-50"
+          className="flex-1 min-h-[44px] bg-white text-cocoa border border-line rounded-full text-sm font-medium hover:bg-sand transition disabled:opacity-50"
         >
           Cancel
         </button>
