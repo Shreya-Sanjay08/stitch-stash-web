@@ -7,7 +7,7 @@ import { CROCHET_COMPONENTS } from './crochet';
 const MOBILE_QUERY = '(max-width: 639px)';
 const MOBILE_SCALE = 0.6;
 // On small screens the pieces hide further off-screen so they stay clear of the text.
-const MOBILE_MIN_HIDDEN = 0.55;
+const MOBILE_MIN_HIDDEN = 0.7;
 const FUZZY_MIN_SIZE = 120;
 
 function clamp01(n: number) {

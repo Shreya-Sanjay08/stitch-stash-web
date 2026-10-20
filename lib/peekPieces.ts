@@ -24,7 +24,7 @@ export type PeekPiece = {
 //   3. Set `src: '/crochet/tulip.webp'` on the piece below. `kind` is then only a fallback.
 // Keep `size`, `hidden` and `rotate` as they are, or tweak them to taste.
 export const PEEK_PIECES: PeekPiece[] = [
-  { id: 'granny-left-top', side: 'left', top: 9, size: 150, rotate: -14, hidden: 0.45, speed: 0.12, kind: 'granny' },
+  { id: 'granny-left-top', side: 'left', top: 24, size: 150, rotate: -14, hidden: 0.45, speed: 0.12, kind: 'granny' },
   { id: 'flower-right-top', side: 'right', top: 17, size: 120, rotate: 18, hidden: 0.4, speed: 0.18, kind: 'flower' },
   { id: 'yarnball-left-mid', side: 'left', top: 33, size: 110, rotate: 10, hidden: 0.35, speed: 0.1, kind: 'yarnball' },
   { id: 'heart-right-mid', side: 'right', top: 46, size: 90, rotate: -12, hidden: 0.4, speed: 0.15, kind: 'heart' },
