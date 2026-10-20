@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
 import TestimonialCarousel from '../components/TestimonialCarousel';
@@ -69,8 +70,19 @@ export default function Home() {
       
       {/* Top bar */}
       <div className="relative z-[2] border-b border-line">
-        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          <span className="font-display text-2xl font-medium tracking-wide text-cocoa">Stitch Stash</span>
+        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+          <Link href="/" className="inline-flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/logo-transparent-800.png"
+              alt="Stitch Stash"
+              width={73}
+              height={56}
+              fetchPriority="high"
+              decoding="async"
+              className="h-14 w-auto"
+            />
+          </Link>
           <div className="flex items-center gap-6 text-xs uppercase tracking-widest">
             <a href={INSTAGRAM_DM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Instagram

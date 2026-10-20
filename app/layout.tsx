@@ -23,10 +23,26 @@ const body = Jost({
   display: 'swap',
 });
 
+const title = 'Stitch Stash | Handmade Crochet & Fabric Pieces, UAE';
+const description = 'Beautifully hand crafted crochet and fabric pieces, made to order in the UAE.';
+
 export const metadata = {
-  title: 'Stitch Stash | Handmade Crochet & Fabric Pieces, UAE',
-  description:
-    'Beautifully hand crafted crochet and fabric pieces, made to order in the UAE.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: 'Stitch Stash',
+    locale: 'en_AE',
+    type: 'website',
+    images: [{ url: '/brand/logo-square.png', width: 512, height: 512, alt: 'Stitch Stash' }],
+  },
+  twitter: {
+    card: 'summary',
+    title,
+    description,
+    images: ['/brand/logo-square.png'],
+  },
 };
 
 export default function RootLayout({
