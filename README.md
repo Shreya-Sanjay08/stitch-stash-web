@@ -12,12 +12,14 @@ The site deliberately has **no shopping cart or checkout**. Each piece is handma
 - Filter buttons (All Creations / Available Now)
 - Sold-out items are dimmed with a "Sold Out" overlay and a disabled button
 - Loading skeletons and an empty state when nothing matches
+- A friendly message with a retry button (and an Instagram link) if products fail to load
 
 **Admin dashboard (`/admin`, owner only)**
 - Email and password login at `/login`, with no public sign-up
-- Add products with an image upload to Supabase Storage
+- Add products with an image upload to Supabase Storage (uploads get random filenames so they never collide)
 - Change a product's status from a dropdown
 - Delete products
+- Edit existing products (title, description, price, and an optional replacement image)
 - Sign out button
 
 ## Tech stack
@@ -71,8 +73,7 @@ Table `public.products`:
 | `description` | text | |
 | `price_aed` | numeric | |
 | `image_url` | text | Public link in the `product-images` bucket |
-| `category` | enum | `bouquets`, `bags`, `wearables`, `plushies`, `other` |
-| `status` | text | `available`, `sold_out`, `coming_soon` |
+| `status` | text | `available` or `sold_out` |
 | `created_at` | timestamptz | Defaults to `now()` |
 
 Row Level Security policies:
@@ -139,8 +140,6 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 - [x] Admin inventory manager
 - [x] Supabase Auth with a protected `/admin` and locked-down database rules
 - [x] Instagram DM and pre-filled email inquiry buttons on each product
-- [ ] Category filters (bouquets, bags, wearables, plushies, other)
-- [ ] "Coming soon" status in the admin and storefront
 - [x] Testimonial carousel celebrating the 1,000+ pieces milestone
 - [x] Keep-alive cron route and `vercel.json` to stop the free Supabase database from pausing
 - [ ] Real product photography and Vercel deployment

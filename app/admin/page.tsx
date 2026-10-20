@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '../../lib/supabaseClient';
 import { Product } from '../../lib/types';
 import Link from 'next/link';
+import { buildImageFileName } from '../../lib/storage';
+import EditProductForm from '../../components/admin/EditProductForm';
 
 export default function AdminPage() {
   const router = useRouter();
@@ -15,6 +17,8 @@ export default function AdminPage() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  const [loadError, setLoadError] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchInventory();
@@ -28,7 +32,9 @@ export default function AdminPage() {
 
     if (error) {
       console.error('Error fetching inventory:', error);
+      setLoadError(true);
     } else if (data) {
+      setLoadError(false);
       setProducts(data);
     }
   };
@@ -45,8 +51,7 @@ export default function AdminPage() {
 
     try {
       // 1. Upload image to Supabase Storage bucket 'product-images'
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
+      const fileName = buildImageFileName(file);
       const { error: uploadError } = await supabase.storage
         .from('product-images')
         .upload(fileName, file);
@@ -214,10 +219,17 @@ export default function AdminPage() {
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-lg font-semibold text-stone-800">Current Inventory ({products.length})</h2>
           
+          {loadError && (
+            <div role="alert" className="bg-rose-50 text-rose-800 p-3 rounded-xl text-sm font-medium border border-rose-100">
+              Couldn&apos;t load inventory. Please refresh the page.
+            </div>
+          )}
+
           {products.length > 0 ? (
             <div className="space-y-3">
               {products.map((product) => (
-                <div key={product.id} className="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-between gap-4">
+                <div key={product.id}>
+                <div className="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <img 
                       src={product.image_url} 
@@ -244,12 +256,33 @@ export default function AdminPage() {
                     </div>
                   </div>
 
-                  <button 
-                    onClick={() => handleDelete(product.id)}
-                    className="text-xs bg-rose-50 text-rose-700 px-3 py-2 rounded-xl hover:bg-rose-100 font-medium transition"
-                  >
-                    Delete
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setEditingId(editingId === product.id ? null : product.id)}
+                      className="text-xs bg-stone-100 text-stone-700 px-3 py-2 rounded-xl hover:bg-stone-200 font-medium transition"
+                    >
+                      Edit
+                    </button>
+                    <button 
+                      onClick={() => handleDelete(product.id)}
+                      className="text-xs bg-rose-50 text-rose-700 px-3 py-2 rounded-xl hover:bg-rose-100 font-medium transition"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                {editingId === product.id && (
+                  <EditProductForm
+                    key={product.id}
+                    product={product}
+                    onSaved={() => {
+                      setEditingId(null);
+                      setSuccessMessage('Changes saved');
+                      fetchInventory();
+                    }}
+                    onCancel={() => setEditingId(null)}
+                  />
+                )}
                 </div>
               ))}
             </div>
