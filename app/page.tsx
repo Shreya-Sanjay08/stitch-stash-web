@@ -129,62 +129,68 @@ export default function Home() {
       {/* Main Content Container */}
       <main className="px-6 py-16 md:px-12 max-w-6xl mx-auto w-full flex-grow">
 
-        {/* Search & Filter Bar */}
-        <section className="mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
-          <div className="w-full md:w-96">
-            <input 
-              type="text"
-              placeholder="Search handmade creations..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white focus:outline-none focus:ring-2 focus:ring-stone-400 text-stone-800 shadow-sm text-sm"
-            />
+        {/* Collection */}
+        <section id="collection" className="scroll-mt-8">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-cocoa mb-3">The Collection</h2>
+            <p className="text-sm text-taupe-dark">
+              Every piece is handmade. Message us on Instagram or email to enquire.
+            </p>
           </div>
 
-          <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
-            <button 
-              onClick={() => setSelectedCategory('all')}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition ${selectedCategory === 'all' ? 'bg-stone-800 text-white' : 'bg-white text-stone-600 border border-stone-200 hover:bg-stone-100'}`}
-            >
-              All Creations
-            </button>
-            <button 
-              onClick={() => setSelectedCategory('available')}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition ${selectedCategory === 'available' ? 'bg-stone-800 text-white' : 'bg-white text-stone-600 border border-stone-200 hover:bg-stone-100'}`}
-            >
-              Available Now
-            </button>
-          </div>
-        </section>
+          {/* Search & Filter Bar */}
+          <div className="mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="w-full md:w-96">
+              <input 
+                type="text"
+                placeholder="Search handmade creations..."
+                aria-label="Search handmade creations"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full min-h-[44px] px-4 rounded-full border border-line bg-white text-cocoa placeholder:text-taupe-dark text-sm focus:outline-none focus:border-clay"
+              />
+            </div>
 
-       {/* Product Grid Section */}
-        <section>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold text-stone-800">Latest Creations</h2>
-            <span className="text-sm text-stone-500">{filteredProducts.length} pieces found</span>
+            <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+              <button 
+                onClick={() => setSelectedCategory('all')}
+                className={`min-h-[44px] px-5 rounded-full text-xs uppercase tracking-widest transition whitespace-nowrap ${selectedCategory === 'all' ? 'bg-cocoa text-cream border border-cocoa' : 'bg-transparent text-cocoa border border-line hover:border-cocoa'}`}
+              >
+                All Creations
+              </button>
+              <button 
+                onClick={() => setSelectedCategory('available')}
+                className={`min-h-[44px] px-5 rounded-full text-xs uppercase tracking-widest transition whitespace-nowrap ${selectedCategory === 'available' ? 'bg-cocoa text-cream border border-cocoa' : 'bg-transparent text-cocoa border border-line hover:border-cocoa'}`}
+              >
+                Available Now
+              </button>
+            </div>
+          </div>
+
+          {/* Product Grid */}
+          <div className="flex justify-end items-center mb-6">
+            <span className="text-sm text-taupe-dark">{filteredProducts.length} pieces found</span>
           </div>
           
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((n) => (
-                <div key={n} className="bg-white rounded-2xl p-4 h-80 animate-pulse border border-stone-100" />
+                <div key={n} className="bg-white rounded-sm h-96 animate-pulse border border-line" />
               ))}
             </div>
           ) : loadError ? (
             <LoadError onRetry={handleRetry} />
           ) : filteredProducts.length > 0 ? (
-            
-            // ===== REPLACE FROM HERE ... =====
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="col-span-full bg-white p-12 rounded-2xl shadow-sm border border-stone-100 text-center text-stone-400">
+            <div className="col-span-full bg-white p-12 rounded-sm border border-line text-center">
               <span className="text-3xl mb-2 block">🧶</span>
-              <p className="text-stone-600 font-medium">No creations match your search.</p>
-              <p className="text-sm text-stone-400 mt-1">Try searching for something else or check back soon!</p>
+              <p className="font-display text-2xl text-cocoa">No creations match your search.</p>
+              <p className="text-sm text-taupe-dark mt-1">Try searching for something else or check back soon!</p>
             </div>
           )}
         </section>
