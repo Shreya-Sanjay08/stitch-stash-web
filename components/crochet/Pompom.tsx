@@ -19,14 +19,14 @@ export default function Pompom({ className, fuzzy }: MotifProps) {
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true" focusable="false">
       <defs>{fuzzy && <FuzzyFilter id="pompom-fuzz" />}</defs>
       <g filter={fuzzy ? 'url(#pompom-fuzz)' : undefined}>
-        <g stroke="#E0A93B" strokeWidth="3" strokeLinecap="round">
+        <g stroke="#E8690B" strokeWidth="3" strokeLinecap="round">
           {FIBRES.map((f, i) => (
             <line key={i} {...f} />
           ))}
         </g>
-        <circle cx="50" cy="50" r="33" fill="#E0A93B" />
+        <circle cx="50" cy="50" r="33" fill="#E8690B" />
         {/* tufts inside, a little darker, for depth */}
-        <g stroke="#7E5A0E" strokeOpacity="0.28" strokeWidth="2" strokeLinecap="round">
+        <g stroke="#A64B00" strokeOpacity="0.28" strokeWidth="2" strokeLinecap="round">
           {FIBRES.filter((_, i) => i % 2 === 0).map((f, i) => (
             <line
               key={i}

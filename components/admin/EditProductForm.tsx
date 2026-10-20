@@ -79,7 +79,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
       className="bg-cream p-4 rounded-sm border border-line space-y-3 mt-2"
     >
       {error && (
-        <div role="alert" className="bg-cream text-clay-dark p-3 rounded-full text-xs font-medium border border-clay">
+        <div role="alert" className="bg-cream text-brand-orange-dark p-3 rounded-full text-xs font-medium border border-brand-orange">
           {error}
         </div>
       )}
@@ -92,7 +92,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
         />
       </div>
 
@@ -104,7 +104,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
           onChange={(e) => setDescription(e.target.value)}
           rows={2}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
         />
       </div>
 
@@ -117,7 +117,7 @@ export default function EditProductForm({ product, onSaved, onCancel }: EditProd
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           disabled={saving}
-          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay"
+          className="w-full px-3 py-2 rounded-sm border border-line text-sm bg-white text-cocoa focus:outline-none focus:border-brand-olive focus:ring-1 focus:ring-brand-olive"
         />
       </div>
 

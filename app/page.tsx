@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { supabase } from '../lib/supabaseClient';
 import { Product } from '../lib/types';
 import TestimonialCarousel from '../components/TestimonialCarousel';
@@ -69,13 +70,24 @@ export default function Home() {
       
       {/* Top bar */}
       <div className="relative z-[2] border-b border-line">
-        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-          <span className="font-display text-2xl font-medium tracking-wide text-cocoa">Stitch Stash</span>
+        <nav className="max-w-6xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
+          <Link href="/" className="inline-flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/logo-transparent-800.png"
+              alt="Stitch Stash"
+              width={94}
+              height={72}
+              fetchPriority="high"
+              decoding="async"
+              className="h-[72px] w-auto"
+            />
+          </Link>
           <div className="flex items-center gap-6 text-xs uppercase tracking-widest">
-            <a href={INSTAGRAM_DM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
+            <a href={INSTAGRAM_DM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Instagram
             </a>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Email
             </a>
           </div>
@@ -85,12 +97,15 @@ export default function Home() {
       {/* Hero */}
       <header className="relative z-[2] px-6 py-16 md:py-28 max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-12 md:gap-8 items-center">
         <div className="md:col-span-7 text-center md:text-left">
-          <p className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-6">Handmade in the UAE</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark mb-6">Handmade in the UAE</p>
           <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.95] text-cocoa mb-6">
             Stitch Stash
           </h1>
           <p className="font-display italic text-xl md:text-2xl text-cocoa mb-3">
             Handcrafted crochet &amp; fabric pieces
+          </p>
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark mb-3">
+            Traditional Handicraft Works
           </p>
           <p className="text-sm text-taupe-dark tracking-wide mb-8">
             10+ years of artisan experience · 1,000+ custom pieces
@@ -114,11 +129,11 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-center md:justify-start gap-6 flex-wrap">
-            <a href="#collection" className="inline-block text-xs uppercase tracking-widest text-cocoa underline underline-offset-8 decoration-line hover:decoration-clay transition">
+            <a href="#collection" className="inline-block text-xs uppercase tracking-widest text-cocoa underline underline-offset-8 decoration-line hover:decoration-brand-orange transition">
               Explore the collection
             </a>
             {/* Handwritten note with a hand-drawn arrow */}
-            <span aria-hidden="true" className="hidden sm:flex items-center gap-2 font-hand text-2xl text-plum -rotate-3">
+            <span aria-hidden="true" className="hidden sm:flex items-center gap-2 font-hand text-2xl text-brand-olive-dark -rotate-3">
               made by hand, in the UAE
               <svg width="54" height="30" viewBox="0 0 54 30" fill="none" className="shrink-0">
                 <path d="M2 20 C14 4 30 4 46 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -126,7 +141,7 @@ export default function Home() {
               </svg>
             </span>
           </div>
-          <p aria-hidden="true" className="sm:hidden mt-6 font-hand text-2xl text-plum -rotate-2">
+          <p aria-hidden="true" className="sm:hidden mt-6 font-hand text-2xl text-brand-olive-dark -rotate-2">
             made by hand, in the UAE
           </p>
         </div>
@@ -161,7 +176,7 @@ export default function Home() {
       {/* Welcome */}
       <section id="about" className="relative bg-sand px-6 py-20 md:py-28">
         <Reveal className="relative z-[2] max-w-2xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-8">Welcome</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark mb-8">Welcome</p>
           {INTRO_PARAGRAPHS.map((paragraph, i) => (
             <p
               key={i}
@@ -198,7 +213,7 @@ export default function Home() {
                 aria-label="Search handmade creations"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full min-h-[44px] px-4 rounded-full border border-line bg-white text-cocoa placeholder:text-taupe-dark text-sm focus:outline-none focus:border-clay"
+                className="w-full min-h-[44px] px-4 rounded-full border border-line bg-white text-cocoa placeholder:text-taupe-dark text-sm focus:outline-none focus:border-brand-olive"
               />
             </div>
 
@@ -261,12 +276,16 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative bg-sand border-t border-line py-12 px-6 mt-20 text-center">
         <div className="relative z-[2] max-w-6xl mx-auto flex flex-col items-center gap-6">
-          <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4">
+            <span className="font-display text-2xl font-medium text-cocoa">Stitch Stash</span>
+            <span aria-hidden="true" className="hidden sm:block h-4 w-px bg-line" />
+            <span className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark">Traditional Handicraft Works</span>
+          </div>
           <div className="flex gap-8 text-xs uppercase tracking-widest">
-            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
+            <a href={INSTAGRAM_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Instagram
             </a>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-[44px] text-cocoa hover:text-clay-dark transition">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="inline-flex items-center min-h-[44px] text-cocoa hover:text-brand-olive-dark transition">
               Email
             </a>
           </div>

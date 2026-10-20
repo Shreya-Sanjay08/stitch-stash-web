@@ -43,9 +43,9 @@ export default function ProductCard({ product }: { product: Product }) {
             {/* Hang-tag price: pointed end with a hole, and a bit of string */}
             <span className="relative inline-block ml-3">
               <svg aria-hidden="true" width="22" height="14" viewBox="0 0 22 14" fill="none" className="absolute -left-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                <path d="M1 12 C6 12 6 3 14 7" stroke="#B5806B" strokeWidth="1.4" strokeLinecap="round" />
+                <path d="M1 12 C6 12 6 3 14 7" stroke="#E8690B" strokeWidth="1.4" strokeLinecap="round" />
               </svg>
-              <span className="inline-flex items-center gap-1 bg-mustard text-cocoa text-lg pl-6 pr-4 py-1 [clip-path:polygon(14px_0,100%_0,100%_100%,14px_100%,0_50%)]">
+              <span className="inline-flex items-center gap-1 bg-blush text-cocoa text-lg pl-6 pr-4 py-1 [clip-path:polygon(14px_0,100%_0,100%_100%,14px_100%,0_50%)]">
                 <span aria-hidden="true" className="absolute left-[9px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white" />
                 <span>
                   {product.price_aed}

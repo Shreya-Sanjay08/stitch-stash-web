@@ -138,15 +138,17 @@ Then open http://localhost:3000. Never commit `.env.local`; it is already in `.g
 
 A warm, quiet boutique look: cream and sand backgrounds, fine 1px borders and small letter-spaced uppercase labels.
 
-- **Fonts** (loaded with `next/font/google` in `app/layout.tsx`): Cormorant Garamond for headings (`font-display`) and Jost for body text (`font-sans`).
-- **Colour tokens** (`tailwind.config.js`): `cream` #FBF7F1, `sand` #F1E9DD, `line` #E7DDCF, `taupe` #8B7B6B, `cocoa` #3F342C, `clay` #B5806B, plus darker `taupe-dark` #6F5F50 and `clay-dark` #8F5A47 for small text so it meets WCAG AA contrast.
+- **Fonts** (loaded with `next/font/google` in `app/layout.tsx`): Fraunces for headings (`font-display`), Jost for body text (`font-sans`) and Caveat (`font-hand`) for short handwritten notes.
+- **Brand colours** (`tailwind.config.js`), taken from the client's logo: `brand-orange` #E8690B, `brand-olive` #7F8A25 and `brand-thread` #8E8E8E. On cream they are only about 3:1, so small text uses the darker `brand-orange-dark` #A64B00 and `brand-olive-dark` #5F6A1A (both above 4.5:1).
+- **Neutrals**: `cream` #FBF7F1 (page background), `sand` #F1E9DD (soft bands), `line` #E7DDCF, `cocoa` #3F342C (text), `taupe` #8B7B6B and `taupe-dark` #6F5F50 (small text), and `blush` #FBDDC4 (a very soft orange tint).
+- **Logo** files are in `public/brand/`: `logo-transparent-800.png` (header), `logo-transparent.png` (full resolution), `logo-square.png` (favicon and share preview) and `logo.png` (the untouched original). To replace the logo, swap those files, keeping the names. `app/icon.png` is a copy of `logo-square.png`, so copy the new square version there as well.
 - **Welcome text** on the homepage lives in `lib/content.ts`. Edit the paragraphs there.
 
 ## Design and interaction
 
 A handmade, playful look that stays quiet enough to read comfortably.
 
-- **Yarn palette** (`tailwind.config.js`): `mustard` #E0A93B, `terracotta` #C8634A, `sage` #9DAE8F, `blush` #EBC4BB and `plum` #7A4B5E, alongside the cream and sand tokens. These are decorative fills; for text use the `-dark` variants (`mustard-dark`, `terracotta-dark`, `sage-dark`, `clay-dark`, `taupe-dark`) so contrast meets WCAG AA.
+- **Palette**: the crochet pieces, thread and accents use the brand orange and olive described in the Design note above. For text use the `-dark` variants so contrast meets WCAG AA.
 - **Fonts** (`app/layout.tsx`): Fraunces for headings (`font-display`), Jost for body text and Caveat (`font-hand`) for short handwritten notes only.
 - **Peeking pieces** (`components/PeekingPieces.tsx`): crochet motifs peek in from the page edges, sway gently and slide with the scroll. Their positions and sizes live in `lib/peekPieces.ts`. Everything is decorative and switches off under `prefers-reduced-motion`.
 - **Yarn thread** (`components/YarnThread.tsx`): a thread winds down behind the page and draws itself as you scroll. Hidden on small screens.

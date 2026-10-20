@@ -10,9 +10,9 @@ export default function YarnBall({ className, fuzzy }: MotifProps) {
         {fuzzy && <FuzzyFilter id="ball-fuzz" />}
       </defs>
       <g filter={fuzzy ? 'url(#ball-fuzz)' : undefined}>
-        <circle cx="46" cy="46" r="34" fill="#9DAE8F" />
+        <circle cx="46" cy="46" r="34" fill="#7F8A25" />
         {/* wound strands, curving around the ball at different angles */}
-        <g clipPath="url(#ball-clip)" fill="none" stroke="#5A6B4C" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round">
+        <g clipPath="url(#ball-clip)" fill="none" stroke="#5F6A1A" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round">
           {[-24, -16, -8, 0, 8, 16, 24].map((o) => (
             <path key={`a${o}`} d={`M8 ${46 + o} Q46 ${30 + o * 1.4} 84 ${46 + o}`} />
           ))}
@@ -22,7 +22,7 @@ export default function YarnBall({ className, fuzzy }: MotifProps) {
         </g>
         <circle cx="46" cy="46" r="34" fill="none" stroke="#3F342C" strokeOpacity="0.15" strokeWidth="1" />
         {/* trailing thread */}
-        <path d="M70 70 C84 76 78 90 90 92 S98 84 94 80" fill="none" stroke="#5A6B4C" strokeWidth="2.4" strokeLinecap="round" />
+        <path d="M70 70 C84 76 78 90 90 92 S98 84 94 80" fill="none" stroke="#5F6A1A" strokeWidth="2.4" strokeLinecap="round" />
       </g>
     </svg>
   );

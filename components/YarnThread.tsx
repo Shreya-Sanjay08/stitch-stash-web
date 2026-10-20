@@ -130,7 +130,7 @@ export default function YarnThread() {
             ref={pathRef}
             d={d}
             fill="none"
-            stroke="#C8634A"
+            stroke="#E8690B"
             strokeWidth="5"
             strokeLinecap="round"
             style={{ strokeDasharray: 1e6, strokeDashoffset: 1e6 }}

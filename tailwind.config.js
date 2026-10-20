@@ -12,19 +12,16 @@ module.exports = {
         line: '#E7DDCF',
         taupe: '#8B7B6B',
         cocoa: '#3F342C',
-        clay: '#B5806B',
-        // Darker variants of taupe and clay for small text, to meet WCAG AA contrast
+        blush: '#FBDDC4', // very soft orange tint
+        // Brand colours, from the client's logo. Use the -dark variants for small text:
+        // brand-orange-dark 5.4:1 and brand-olive-dark 5.5:1 on cream, both above 4.5:1.
+        'brand-orange': '#E8690B',
+        'brand-olive': '#7F8A25',
+        'brand-thread': '#8E8E8E',
+        'brand-orange-dark': '#A64B00',
+        'brand-olive-dark': '#5F6A1A',
+        // Darker taupe for small text
         'taupe-dark': '#6F5F50',
-        'clay-dark': '#8F5A47',
-        // Yarn colours (decorative fills). Use the -dark variants for any text.
-        mustard: '#E0A93B',
-        terracotta: '#C8634A',
-        sage: '#9DAE8F',
-        blush: '#EBC4BB',
-        plum: '#7A4B5E',
-        'mustard-dark': '#7E5A0E',
-        'terracotta-dark': '#A04A33',
-        'sage-dark': '#5A6B4C',
       },
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'Times New Roman', 'serif'],

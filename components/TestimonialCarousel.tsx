@@ -110,7 +110,7 @@ export default function TestimonialCarousel() {
             >
               {slide.type === 'milestone' ? (
                 <>
-                  <span className="text-xs uppercase tracking-[0.3em] text-clay-dark mb-6 inline-block">
+                  <span className="text-xs uppercase tracking-[0.3em] text-brand-olive-dark mb-6 inline-block">
                     Our Milestone
                   </span>
                   <p className="font-display text-6xl md:text-8xl font-medium text-cocoa tracking-tight mb-4">
@@ -126,7 +126,7 @@ export default function TestimonialCarousel() {
               ) : (
                 <>
                   {slide.isSample && (
-                    <span className="bg-cream text-clay-dark text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block border border-line">
+                    <span className="bg-cream text-brand-orange-dark text-[10px] uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block border border-line">
                       SAMPLE – not a real review
                     </span>
                   )}
