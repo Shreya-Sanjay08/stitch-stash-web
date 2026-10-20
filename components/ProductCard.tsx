@@ -5,18 +5,20 @@ export default function ProductCard({ product }: { product: Product }) {
   const isAvailable = product.status === 'available';
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition group">
+    <div className="bg-white border border-line overflow-hidden flex flex-col group">
       {/* Product Image */}
-      <div className="h-64 w-full bg-stone-100 relative overflow-hidden">
+      <div className="aspect-[4/5] w-full bg-sand relative overflow-hidden">
         <img
           src={product.image_url}
           alt={product.title}
-          className={`object-cover w-full h-full group-hover:scale-105 transition duration-300 ${!isAvailable ? 'opacity-60 grayscale-[30%]' : ''}`}
+          loading="lazy"
+          decoding="async"
+          className={`object-cover w-full h-full transition duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 ${!isAvailable ? 'opacity-60 grayscale' : ''}`}
         />
 
         {!isAvailable && (
-          <div className="absolute inset-0 flex items-center justify-center bg-stone-900/30 backdrop-blur-[2px]">
-            <span className="bg-stone-900 text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-xl shadow-lg">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+            <span aria-hidden="true" className="w-[140%] -rotate-12 bg-cocoa text-cream text-xs uppercase tracking-[0.3em] text-center py-2">
               Sold Out
             </span>
           </div>
@@ -24,13 +26,16 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       {/* Product Details */}
-      <div className="p-5 flex flex-col flex-grow">
-        <h3 className="text-lg font-semibold text-stone-800 mb-1">{product.title}</h3>
-        <p className="text-sm text-stone-500 mb-4 flex-grow line-clamp-2">{product.description}</p>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="font-display text-xl font-medium text-cocoa mb-1">{product.title}</h3>
+        <p className="text-sm text-taupe-dark mb-5 flex-grow line-clamp-2">{product.description}</p>
 
-        <div className="mt-auto pt-2 border-t border-stone-50">
-          <div className="mb-3">
-            <span className="font-bold text-lg text-stone-800">{product.price_aed} AED</span>
+        <div className="mt-auto">
+          <div className="border-t border-line pt-4 mb-4">
+            <span className="text-lg text-cocoa">
+              {product.price_aed}
+              <span className="text-xs tracking-widest ml-1">AED</span>
+            </span>
           </div>
 
           {isAvailable ? (
@@ -39,13 +44,13 @@ export default function ProductCard({ product }: { product: Product }) {
                 href={INSTAGRAM_DM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center text-sm bg-stone-800 text-white px-4 py-2 rounded-xl font-medium hover:bg-stone-700 transition"
+                className="flex-1 inline-flex items-center justify-center min-h-[44px] text-center text-sm bg-cocoa text-cream px-4 rounded-full hover:bg-cocoa/90 transition"
               >
                 Message on Instagram
               </a>
               <a
                 href={buildInquiryMailto(product.title, product.price_aed)}
-                className="flex-1 text-center text-sm bg-white border border-stone-200 text-stone-800 px-4 py-2 rounded-xl font-medium hover:bg-stone-50 transition"
+                className="flex-1 inline-flex items-center justify-center min-h-[44px] text-center text-sm border border-cocoa text-cocoa px-4 rounded-full hover:bg-sand transition"
               >
                 Email
               </a>
@@ -53,7 +58,7 @@ export default function ProductCard({ product }: { product: Product }) {
           ) : (
             <button
               disabled
-              className="text-sm bg-stone-200 text-stone-400 px-4 py-2 rounded-xl font-medium cursor-not-allowed"
+              className="w-full min-h-[44px] text-sm bg-sand text-taupe-dark px-4 rounded-full cursor-not-allowed"
             >
               Sold Out
             </button>
