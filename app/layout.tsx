@@ -1,11 +1,19 @@
 import './globals.css';
-import { Cormorant_Garamond, Jost } from 'next/font/google';
+import { Fraunces, Caveat, Jost } from 'next/font/google';
 
-const display = Cormorant_Garamond({
+// Fraunces is a variable font: no weight list, just the optical-size and softness axes.
+const display = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  axes: ['SOFT', 'opsz'],
   style: ['normal', 'italic'],
   variable: '--font-display',
+  display: 'swap',
+});
+
+// Handwriting, used only for short annotations.
+const hand = Caveat({
+  subsets: ['latin'],
+  variable: '--font-hand',
   display: 'swap',
 });
 
@@ -27,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${hand.variable} ${body.variable}`}>
       <body>{children}</body>
     </html>
   );
